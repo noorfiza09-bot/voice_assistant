@@ -1,0 +1,130 @@
+:root {
+  /* Color */
+  --bg: #06070d;
+  --surface: rgba(11, 13, 23, 0.72);
+  --surface-raised: rgba(16, 19, 31, 0.85);
+  --line: #1d2133;
+  --text: #f3f5ff;
+  --text-muted: #8a90ac;
+  --text-faint: #4e5470;
+  --violet: #2f8cff;
+  --violet-bright: #6fd0ff;
+  --violet-soft: rgba(47, 140, 255, 0.16);
+  --coral: #ff9b71;
+  --coral-soft: rgba(255, 155, 113, 0.16);
+  --success: #6fd6a8;
+  --glow-gradient: linear-gradient(135deg, #2f8cff, #6fd0ff);
+
+  /* Type */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Layout */
+  --rail-width: 88px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Two slow-drifting radial glows behind everything, giving the dark UI
+   depth without any images or extra DOM elements. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  background: #2f8cff;
+  top: -10%;
+  left: -10%;
+  animation: drift-a 22s ease-in-out infinite alternate;
+}
+
+body::after {
+  background: #6fd0ff;
+  bottom: -15%;
+  right: -10%;
+  animation: drift-b 26s ease-in-out infinite alternate;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes drift-a {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(8%, 6%) scale(1.15);
+  }
+}
+
+@keyframes drift-b {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-6%, -8%) scale(1.1);
+  }
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

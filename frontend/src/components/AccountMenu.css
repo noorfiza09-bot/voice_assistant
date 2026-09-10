@@ -1,0 +1,78 @@
+.account-menu {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.account-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--glow-gradient);
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px rgba(47, 140, 255, 0.35), 0 0 16px rgba(47, 140, 255, 0.3);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.account-avatar:hover {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px rgba(47, 140, 255, 0.5), 0 0 22px rgba(47, 140, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 200px;
+  background: var(--surface-raised);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+  animation: dropdown-in 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account-dropdown-email {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 12.5px;
+  color: var(--text-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-dropdown-logout {
+  padding: 8px 10px;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--text-muted);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.account-dropdown-logout:hover {
+  background: var(--surface);
+  color: var(--coral);
+}

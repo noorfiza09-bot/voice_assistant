@@ -1,0 +1,35 @@
+.task-list-section {
+  padding: 0 32px 40px;
+}
+
+.task-list-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 18px 8px;
+  border-top: 1px solid var(--line);
+}
+
+.task-list-header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.task-list-count {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+}
+
+.task-list-empty {
+  padding: 24px 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 42ch;
+}

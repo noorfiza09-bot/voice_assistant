@@ -1,0 +1,33 @@
+.wave-banner {
+  width: 100%;
+  height: 64px;
+  display: block;
+  overflow: visible;
+}
+
+.wave-banner-scroll {
+  animation: wave-scroll 7s linear infinite;
+}
+
+.wave-banner-listening .wave-banner-scroll {
+  animation-duration: 2.4s;
+}
+
+.wave-banner-listening path {
+  stroke-width: 3.5;
+}
+
+@keyframes wave-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-800px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-banner-scroll {
+    animation: none;
+  }
+}

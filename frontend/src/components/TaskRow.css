@@ -1,0 +1,89 @@
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 6px 14px 14px;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  list-style: none;
+  animation: task-row-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes task-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-row.priority-high {
+  border-left-color: var(--coral);
+}
+
+.task-row.priority-normal {
+  border-left-color: transparent;
+}
+
+.task-checkbox {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-row.is-done .task-checkbox {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: 0 0 10px rgba(111, 214, 168, 0.5);
+}
+
+.task-checkbox:hover {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-soft);
+}
+
+.task-title {
+  flex: 1;
+  font-size: 14.5px;
+  color: var(--text);
+}
+
+.task-row.is-done .task-title {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+.task-due {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.task-row.is-done .task-due {
+  color: var(--success);
+}
+
+.task-delete {
+  color: var(--text-faint);
+  opacity: 0;
+  padding: 4px;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.task-row:hover .task-delete {
+  opacity: 1;
+}
+
+.task-delete:hover {
+  color: var(--coral);
+}

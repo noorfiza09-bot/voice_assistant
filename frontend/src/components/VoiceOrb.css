@@ -1,0 +1,162 @@
+.voice-orb-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 48px 24px 40px;
+}
+
+.voice-orb-banner {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.voice-orb {
+  position: relative;
+  z-index: 1;
+  width: 108px;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-orb:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voice-orb-core {
+  position: relative;
+  z-index: 2;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--glow-gradient);
+  box-shadow: 0 0 24px 4px rgba(47, 140, 255, 0.5), 0 8px 30px rgba(47, 140, 255, 0.3);
+  animation: breathe 3.6s ease-in-out infinite;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.voice-orb.is-listening .voice-orb-core {
+  animation: none;
+  transform: scale(1.05);
+  box-shadow: 0 0 40px 8px rgba(111, 208, 255, 0.65), 0 8px 34px rgba(47, 140, 255, 0.4);
+}
+
+.voice-orb-rings {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--violet-soft);
+  opacity: 0;
+}
+
+.voice-orb.is-listening .ring {
+  animation: ripple 2.2s ease-out infinite;
+}
+
+.ring-2 {
+  animation-delay: 0.5s;
+}
+.ring-3 {
+  animation-delay: 1s;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 22px;
+}
+
+.wave-bar {
+  width: 3px;
+  border-radius: 2px;
+  background: #fff;
+  animation: wave 0.9s ease-in-out infinite;
+}
+
+.wave-bar-0 {
+  height: 8px;
+  animation-delay: 0s;
+}
+.wave-bar-1 {
+  height: 16px;
+  animation-delay: 0.1s;
+}
+.wave-bar-2 {
+  height: 22px;
+  animation-delay: 0.2s;
+}
+.wave-bar-3 {
+  height: 14px;
+  animation-delay: 0.3s;
+}
+.wave-bar-4 {
+  height: 8px;
+  animation-delay: 0.4s;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.voice-orb-status {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.voice-orb-transcript {
+  margin: 0;
+  max-width: 420px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--violet-bright);
+  text-shadow: 0 0 18px rgba(111, 208, 255, 0.35);
+}

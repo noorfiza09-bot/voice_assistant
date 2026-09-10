@@ -1,0 +1,113 @@
+.calendar-view {
+  padding: 0 32px 40px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 18px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.calendar-nav-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendar-nav-btn:hover {
+  border-color: var(--violet);
+  color: var(--text);
+  box-shadow: 0 0 12px rgba(47, 140, 255, 0.2);
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-weekdays {
+  padding: 0 2px 8px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.calendar-cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendar-cell-empty {
+  pointer-events: none;
+}
+
+.calendar-cell:hover {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.calendar-cell.is-today {
+  color: var(--violet-bright);
+  font-weight: 600;
+}
+
+.calendar-cell.is-selected {
+  background: var(--violet-soft);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(47, 140, 255, 0.35), 0 0 14px rgba(47, 140, 255, 0.15);
+}
+
+.calendar-dot {
+  position: absolute;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--violet-bright);
+}
+
+.calendar-agenda {
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.calendar-agenda h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.calendar-agenda-empty {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
