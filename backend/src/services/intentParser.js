@@ -4,7 +4,13 @@
 
 import OpenAI from "openai";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// baseURL defaults to OpenAI's own API. Set OPENAI_BASE_URL to point this at
+// any OpenAI-compatible provider instead — e.g. Groq (https://api.groq.com/openai/v1),
+// which offers a free tier with no card required, using the same SDK calls below.
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: process.env.OPENAI_BASE_URL || undefined,
+});
 const MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
 const SYSTEM_PROMPT = `You are the intent-parsing engine for a voice task assistant called VoiceTask.
